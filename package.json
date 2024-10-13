@@ -18,11 +18,14 @@
     "inter-ui": "^4.0.2",
     "pinia": "^2.2.4",
     "the-new-css-reset": "^1.11.3",
+    "vite-plugin-vuetify": "^2.0.4",
     "vue": "^3.5.11",
     "vue-material-design-icons": "^5.3.1",
-    "vue-router": "^4.4.5"
+    "vue-router": "^4.4.5",
+    "vuetify": "^3.7.2"
   },
   "devDependencies": {
+    "@mdi/font": "^7.4.47",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.16.11",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
