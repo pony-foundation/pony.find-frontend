@@ -1,11 +1,12 @@
-import { init, backButton, closingBehavior, miniApp, themeParams } from '@telegram-apps/sdk';
+import { init, backButton, closingBehavior, miniApp, themeParams, postEvent } from '@telegram-apps/sdk';
 import { mockEnv } from './mockEnv';
 
 export default function() {
     // Init the package and actualize all global dependencies.
     mockEnv();
     init();
-    miniApp.mount()
+    miniApp.mount();
+    postEvent("web_app_expand");
     themeParams.mount();
     themeParams.bindCssVars();
     miniApp.bindCssVars();
