@@ -27,14 +27,11 @@ function TryGoTo(idx: Number) {
 </script>
 <template>
     <NavigationBar class="navbar-main">
-        <NavigationBarButton @click="TryGoTo(0)" :selected="props.selected==0">review</NavigationBarButton>
-        <NavigationBarButton @click="TryGoTo(1)" :selected="props.selected==1">history</NavigationBarButton>
-        <NavigationBarButton @click="TryGoTo(2)" :selected="props.selected==2">profile</NavigationBarButton>
+        <NavigationBarButton @click="TryGoTo(0)" :selected="props.selected==0">Ревью</NavigationBarButton>
+        <NavigationBarButton @click="TryGoTo(1)" :selected="props.selected==1">История</NavigationBarButton>
+        <NavigationBarButton @click="TryGoTo(2)" :selected="props.selected==2">Профили</NavigationBarButton>
     </NavigationBar>
 </template>
 
 <style>
-.navbar-main {
-    position: sticky;
-}
 </style>
