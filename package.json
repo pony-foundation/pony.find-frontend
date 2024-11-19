@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@dbetka/vue-material-symbols": "^1.2.0",
+    "@pony.foundation/find-api": "^0.1.0",
     "@telegram-apps/sdk": "^2.4.0",
     "dayjs": "^1.11.13",
     "inter-ui": "^4.0.2",

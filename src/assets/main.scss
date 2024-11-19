@@ -1,22 +1,22 @@
 @import "./transitions.scss";
 @import "./fonts.scss";
 
-:root {
+body {
     // fallback
     --tg-theme-accent-text-color: #6ab2f2;
-    --tg-theme-bg-color: #17212b;
+    --tg-theme-bg-color: #12161A;
     --tg-theme-button-color: #5288c1;
     --tg-theme-button-text-color: #ffffff;
     --tg-theme-destructive-text-color: #ec3942;
     --tg-theme-header-bg-color: #17212b;
-    --tg-theme-hint-color: #708499;
+    --tg-theme-hint-color: #D03CDD22;
     --tg-theme-link-color: #6ab3f3;
     --tg-theme-secondary-bg-color: #232e3c;
     --tg-theme-section-bg-color: #17212b;
     --tg-theme-section-header-text-color: #6ab3f3;
     --tg-theme-subtitle-text-color: #708499;
     --tg-theme-text-color: #f5f5f5;
-    --tg-bg-color: #17212b;
+    --tg-bg-color: #12161A;
     --tg-bottom-bar-color: #232e3c;
     --tg-header-color: #17212b;
 }
@@ -67,19 +67,31 @@ body {
     }
 }
 .navbar {
-    height: 4rem;
-    background-color: $bottom-bar-color;
+    height: 4.5rem;
     display: flex;
     align-items: stretch;
-    align-content: stretch;
-    & > .navbar-button {
-        width: 100%;
+    align-content: space-around;
+    justify-content: space-around;
+    position: absolute;
+    width: 100vw;
+    bottom:0px;
+    .navbar-container {
+        width: 64px;
+        background-color: #000;
+        border-radius: 32px 32px 0 0;
+        padding: 4px;
+    }
+    .navbar-button {
+        width: 56px;
+        height: 56px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        border-radius: 100%;
+        background-color: $hint-color;
         &.navbar-button-selected {
-            color: $accent-text-color;
+            //color: $accent-text-color;
         }
         & > .navbar-button-icon {
             
@@ -91,34 +103,41 @@ body {
     }
 }
 
-.review-image {
-    height: 430px-64px; // to make flow not wonky
-    > img {
-        height: 430px;
-        position: absolute;
-        top: -64px;
+.banner {
+    z-index: 10;
+    height: 128px;
+    width: 100vw;
+    flex-shrink: 0;
+    > .banner-image {
+        height: 128px;
         width: 100vw;
+        position: absolute;
         object-fit: cover;
     }
-    > h1 {
+    > .banner-text {
+        height: 128px;
         position: absolute;
         color: #fff;
-        -webkit-text-stroke: 2px #000;
-        font-size: 3rem;
+        -webkit-text-stroke: 4px #000;
+        font-size: 4rem;
         font-weight: 1000;
-        text-shadow: 0 5px #000,1px 5px #000,-1px 5px #000;
         width: 100%;
-        text-align: center;
-        letter-spacing: -0.25px;
+        text-align: left;
+        line-height: 75%;
         font-family: "Inter", "system-ui"; // the outline goes haywire
         z-index: 1;
+        > span {
+            vertical-align: middle;
+        }
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
-    > .review-image-blur {
-        position: relative;
-        top: 430px-128px;
-        height: 64px;
-        mask: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 10%, rgba(0,0,0,1) 50%);;
-	    backdrop-filter: blur(16px);
+    > .banner-image-blur {
+        filter: blur(1.5rem);
+        height: 128+32px;
+        top:-16px;
+        mix-blend-mode: hard-light;
+        opacity: 50%
     }
 }
 
@@ -145,6 +164,11 @@ body {
 
             &-left {
                 border-radius: 100%;
+                width: 40px;
+                flex-shrink: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 &-image {
                     max-inline-size: 64px; //?????
                     width: 64px;
@@ -153,11 +177,6 @@ body {
                     object-fit: cover;
                     image-rendering: high-quality;
                 }
-                width: 40px;
-                flex-shrink: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
 
             &-text {
@@ -192,6 +211,29 @@ body {
             .disabled {
                 opacity: 0.25;
             }
+        }
+    }
+}
+
+.profile {
+    display: flex;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 7rem;
+    flex-grow: 1;
+    box-sizing: border-box;
+    background-color: rgba($color: white, $alpha: 0.1);
+    gap:16px;
+    flex-direction: column;
+    &-tag-list {
+        font-weight: bold;
+        display: flex;
+        .profile-tag:not(:first-child)::before {
+            content: "/";
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+            opacity: 0.5;
         }
     }
 }
